@@ -1,0 +1,11 @@
+.adCard {
+  height: 30vh;
+  position: relative;
+}
+.adCard img {
+  height: 100%;
+}
+.adCard .contents {
+  background-color: rgba(187, 184, 184, 0.4);
+  direction: rtl;
+}/*# sourceMappingURL=AdCard.module.css.map */

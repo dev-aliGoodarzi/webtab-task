@@ -23,7 +23,7 @@ const Ads: React.FunctionComponent<AdsProps> = ({
   setAdsDataFetchStatus,
 }) => {
   return (
-    <div>
+    <div className="flex flex-col items-center justify-start w-full h-max">
       <h1>ad Page</h1>
       {adsDataFetchStatus === "Done" && (
         <>

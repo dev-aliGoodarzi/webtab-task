@@ -1,0 +1,11 @@
+.adCard {
+  height: 30vh;
+  position: relative;
+  img {
+    height: 100%;
+  }
+  .contents {
+    background-color: rgba(187, 184, 184, 0.4);
+    direction: rtl;
+  }
+}
