@@ -9,6 +9,7 @@ import {
 } from "../../Models/customTypes";
 import VehicleSelector from "../../Components/VehicleSelector/VehicleSelector";
 import PendingAnimation from "../../Components/PendingAnimation/PendingAnimation";
+import AdTypeSelector from "../../Components/AdTypeSelector/AdTypeSelector";
 // React
 // CSS
 // CSS
@@ -62,6 +63,7 @@ const Ads: React.FunctionComponent<AdsProps> = ({
         </>
       )}
       {adsDataFetchStatus === "Pending" && <PendingAnimation />}
+      <AdTypeSelector selectedAd={selectedAd} setSelectedAd={setSelectedAd} />
     </div>
   );
 };

@@ -57,6 +57,12 @@ const VehicleSelector: React.FunctionComponent<VehicleSelectorProps> = ({
           titleForShow={item.title}
           selectedVehicle={selectedVehicle}
           vehcileType={item.thisVehcileType}
+          styles={{
+            background:
+              selectedVehicle === item.thisVehcileType
+                ? "#FDB813"
+                : "transparent",
+          }}
         >
           {item.icon}
         </SelectorBtn>
