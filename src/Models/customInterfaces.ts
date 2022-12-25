@@ -18,5 +18,5 @@ export interface I_adType {
   title: string;
   icon: any;
   onCLick: Function;
-  thisAdType: adType;
+  adType: adType;
 }

@@ -28,21 +28,21 @@ const AdTypeSelector: React.FunctionComponent<AdTypeSelectorProps> = ({
       id: "ad-1",
       icon: goldBadgeIcon,
       onCLick: () => setSelectedAd(1),
-      thisAdType: 1,
+      adType: 1,
       title: "تبلیغات طلایی",
     },
     {
       id: "ad-2",
       icon: silverBadgeIcon,
       onCLick: () => setSelectedAd(2),
-      thisAdType: 2,
+      adType: 2,
       title: "تبلیعات نقره ای",
     },
     {
       id: "ad-3",
       icon: bronzeBadgeIcon,
       onCLick: () => setSelectedAd(3),
-      thisAdType: 3,
+      adType: 3,
       title: "تبلیعات برنزی",
     },
   ];
@@ -55,16 +55,16 @@ const AdTypeSelector: React.FunctionComponent<AdTypeSelectorProps> = ({
           onClickHandler={item.onCLick}
           titleForShow={item.title}
           adType={selectedAd}
-          selectedAd={item.thisAdType}
+          selectedAd={item.adType}
           className="flex-col-reverse border-none shadow-none text-sm w-1/3 rounded-none"
           styles={{
             borderBottom:
-              selectedAd === item.thisAdType
+              selectedAd === item.adType
                 ? "2px solid #FDB813"
                 : "2px solid transparent",
           }}
         >
-          <img src={item.icon} alt={`iconOf ${item.thisAdType}`} />
+          <img src={item.icon} alt={`badgeIcon`} />
         </SelectorBtn>
       ))}
     </div>
