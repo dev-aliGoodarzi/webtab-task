@@ -1,1 +1,1 @@
-{"version":3,"sources":[],"names":[],"mappings":"","file":"PendingAnimation.module.css"}
+{"version":3,"sources":["PendingAnimation.module.scss","PendingAnimation.module.css"],"names":[],"mappings":"AAAA;EACE,oCAAA;EACA,qCAAA;EACA,kBAAA;EACA,oDAAA;UAAA,4CAAA;ACCF;;ADEA;EACE;IACE,uBAAA;ECCF;EDCA;IACE,yBAAA;ECCF;AACF;;ADPA;EACE;IACE,uBAAA;ECCF;EDCA;IACE,yBAAA;ECCF;AACF","file":"PendingAnimation.module.css"}

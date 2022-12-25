@@ -8,6 +8,7 @@ import {
   vehicleType,
 } from "../../Models/customTypes";
 import VehicleSelector from "../../Components/VehicleSelector/VehicleSelector";
+import PendingAnimation from "../../Components/PendingAnimation/PendingAnimation";
 // React
 // CSS
 // CSS
@@ -60,8 +61,7 @@ const Ads: React.FunctionComponent<AdsProps> = ({
           </button>
         </>
       )}
-      {adsDataFetchStatus === "Pending" && <h1>Pending Bro :/ !</h1>}
-      
+      {adsDataFetchStatus === "Pending" && <PendingAnimation />}
     </div>
   );
 };

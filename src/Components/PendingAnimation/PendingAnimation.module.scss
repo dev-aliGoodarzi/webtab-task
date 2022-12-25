@@ -1,0 +1,15 @@
+.pending {
+  border: 2px solid rgb(240, 166, 240);
+  border-top: 2px solid rgb(73, 1, 141);
+  border-radius: 50%;
+  animation: pendingAnim 0.3s ease 0s infinite;
+}
+
+@keyframes pendingAnim {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
