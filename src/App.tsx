@@ -8,6 +8,7 @@ import { I_Advertise } from "./Models/advertiseInterface";
 import { getAdsByVehicleTypeAndAdType } from "./util/getAdsByVehicleTypeAndAdType";
 import { adsDataFetchStatus } from "./Models/customTypes";
 import Ads from "./Pages/Ads/Ads";
+import Ad from "./Components/Ad/Ad";
 // Components
 // Models
 // Models
@@ -39,7 +40,8 @@ const App = () => {
               setAdsDataFetchStatus={setAdsDataFetchStatus}
             />
           }
-        />
+        />{" "}
+        <Route path="/ad/:adId" element={<Ad />} />
       </Routes>
     </>
   );

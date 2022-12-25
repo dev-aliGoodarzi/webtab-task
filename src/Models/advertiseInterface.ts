@@ -21,7 +21,7 @@ interface AdvertiseGallery {
 
 interface AdvertiseSocialMedia {
   social_media_id: string;
-  value?: string | string;
+  value?: string;
   social_media: Socialmedia;
 }
 

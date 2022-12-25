@@ -1,18 +1,41 @@
 // React
-import React from "react";
-import { I_Advertise } from "../../Models/advertiseInterface";
+import React, { useEffect, useState } from "react";
 // React
 // CSS
 // CSS
+// Models
+import { I_Advertise } from "../../Models/advertiseInterface";
+// Models
 // Moduels
+import { useParams } from "react-router-dom";
 // Moduels
 
-type AdProps = {
-  selectedAd: I_Advertise;
-};
+const Ad = () => {
+  const [selectedAdData, setSelectedAdData] = useState<I_Advertise>({
+    address: "",
+    advertise_id: 0,
+    advertise_type_id: 0,
+    AdvertiseSocialMedias: [],
+    description: "",
+    duration: 0,
+    favourite: false,
+    image: "",
+    lat_lon: "",
+    AdvertiseGalleries: [],
+    discount_code: "",
+    phone: "",
+    discount_value: "",
+  });
+  useEffect(() => {
 
-const Ad: React.FunctionComponent<AdProps> = ({ selectedAd }) => {
-  return <div>single Ad :{")"}</div>;
+    
+  }, []);
+  const { adId: selectedAd } = useParams();
+  return (
+    <div>
+      single Ad :{")"} {selectedAd}
+    </div>
+  );
 };
 
 export default Ad;
