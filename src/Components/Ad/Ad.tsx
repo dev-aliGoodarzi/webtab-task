@@ -31,7 +31,7 @@ const Ad = () => {
   useEffect(() => {
     getSingleAd(adId2, setSelectedAdData);
     console.log(`selectedAd : `, selectedAd);
-  }, [adId2]);
+  }, [selectedAd, adId2]);
   return <div>{selectedAdData.address}</div>;
 };
 

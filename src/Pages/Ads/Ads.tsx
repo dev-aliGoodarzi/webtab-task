@@ -2,7 +2,12 @@
 import React from "react";
 import { I_Advertise } from "../../Models/advertiseInterface";
 import AdCard from "../../Components/AdCard/AdCard";
-import { adsDataFetchStatus } from "../../Models/customTypes";
+import {
+  adsDataFetchStatus,
+  adType,
+  vehicleType,
+} from "../../Models/customTypes";
+import VehicleSelector from "../../Components/VehicleSelector/VehicleSelector";
 // React
 // CSS
 // CSS
@@ -15,6 +20,10 @@ type AdsProps = {
   setAdsDataFetchStatus: React.Dispatch<
     React.SetStateAction<adsDataFetchStatus>
   >;
+  selectedVehicle: vehicleType;
+  setSelectedVehicle: React.Dispatch<React.SetStateAction<vehicleType>>;
+  selectedAd: adType;
+  setSelectedAd: React.Dispatch<React.SetStateAction<adType>>;
 };
 
 const Ads: React.FunctionComponent<AdsProps> = ({
@@ -24,7 +33,7 @@ const Ads: React.FunctionComponent<AdsProps> = ({
 }) => {
   return (
     <div className="flex flex-col items-center justify-start w-full h-max">
-      <h1>ad Page</h1>
+      <VehicleSelector />
       {adsDataFetchStatus === "Done" && (
         <>
           {ads.map((item) => (
