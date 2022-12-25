@@ -1,9 +1,11 @@
 // React
-import React from "react";
+import React, { useState, useEffect } from "react";
 // React
 // Components
 import { Routes, Route } from "react-router-dom";
 import Home from "./Containers/Home/Home";
+import { I_Advertise } from "./Models/advertiseInterface";
+import { getAdsByVehicleTypeAndAdType } from "./util/getAdsByVehicleTypeAndAdType";
 // Components
 // Models
 // Models
@@ -11,6 +13,10 @@ import Home from "./Containers/Home/Home";
 // Modules
 
 const App = () => {
+  const [ads, setAds] = useState<I_Advertise[] | string>([]);
+  useEffect(() => {
+    getAdsByVehicleTypeAndAdType(1, 1, setAds);
+  }, []);
   return (
     <>
       <Routes>
