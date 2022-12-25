@@ -8,6 +8,7 @@ import { I_Advertise } from "../../Models/advertiseInterface";
 // Models
 // Moduels
 import { useParams } from "react-router-dom";
+import { getSingleAd } from "../../util/getSingleAd";
 // Moduels
 
 const Ad = () => {
@@ -26,16 +27,12 @@ const Ad = () => {
     phone: "",
     discount_value: "",
   });
+  const { adId: selectedAd, adId2 } = useParams();
   useEffect(() => {
-
-    
-  }, []);
-  const { adId: selectedAd } = useParams();
-  return (
-    <div>
-      single Ad :{")"} {selectedAd}
-    </div>
-  );
+    getSingleAd(adId2, setSelectedAdData);
+    console.log(`selectedAd : `, selectedAd);
+  }, [adId2]);
+  return <div>{selectedAdData.address}</div>;
 };
 
 export default Ad;
