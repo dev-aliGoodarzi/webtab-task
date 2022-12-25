@@ -7,6 +7,7 @@ import Home from "./Containers/Home/Home";
 import { I_Advertise } from "./Models/advertiseInterface";
 import { getAdsByVehicleTypeAndAdType } from "./util/getAdsByVehicleTypeAndAdType";
 import { adsDataFetchStatus } from "./Models/customTypes";
+import Ads from "./Pages/Ads/Ads";
 // Components
 // Models
 // Models
@@ -24,13 +25,11 @@ const App = () => {
     <>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route
+          path="/"
+          element={<Ads ads={ads} adsDataFetchStatus={adsDataFetchStatus} />}
+        />
       </Routes>
-      <br />
-      <br />
-      <br />
-      {ads.map((item) => (
-        <div key={item.advertise_id}>{item.phone}</div>
-      ))}
     </>
   );
 };
