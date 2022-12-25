@@ -27,13 +27,22 @@ const App = () => {
   //***********************************SideEffect Manage****************************** */
   // for getting datas @ first render (+) retry If Fail The Opration !
   useEffect(() => {
+    setAdsDataFetchStatus("Pending");
+  }, [selectedAd, selectedVehicle]);
+  useEffect(() => {
     if (adsDataFetchStatus === "Pending") {
-      getAdsByVehicleTypeAndAdType(1, 1, setAds, setAdsDataFetchStatus);
+      setAds([]);
+      getAdsByVehicleTypeAndAdType(
+        selectedVehicle,
+        selectedAd,
+        setAds,
+        setAdsDataFetchStatus
+      );
       return;
     } else {
       return;
     }
-  }, [adsDataFetchStatus]);
+  }, [adsDataFetchStatus, selectedAd, selectedVehicle]);
   return (
     //***********************************SideEffect Manage****************************** */
     //********************************************************************************** */
