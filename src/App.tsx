@@ -67,7 +67,7 @@ const App = () => {
               />
             }
           />
-          <Route path="/ad/:adId/:adId2" element={<Ad />} />
+          <Route path="/ads/:adId/:adId2" element={<Ad />} />
         </Routes>
       )}
     </>
