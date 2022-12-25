@@ -7,8 +7,9 @@ import App from "./App";
 // Main Component
 // Modules
 import { BrowserRouter as Router } from "react-router-dom";
-
 // Modules
+
+import "./index.css";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
