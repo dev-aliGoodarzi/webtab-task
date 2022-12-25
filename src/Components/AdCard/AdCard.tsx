@@ -53,7 +53,7 @@ const AdCard: React.FunctionComponent<AdCardProps> = ({
         >
           <p>{description}</p>
           <p>{address}</p>
-          <p>{usePersianNumbers(phone)}</p>
+          <p>{phone}</p>
         </div>
       </div>
     </Link>
