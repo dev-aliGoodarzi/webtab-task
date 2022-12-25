@@ -48,7 +48,7 @@ const App = () => {
               setAdsDataFetchStatus={setAdsDataFetchStatus}
             />
           }
-        />{" "}
+        />
         <Route path="/ad/:adId/:adId2" element={<Ad />} />
       </Routes>
     </>
