@@ -12,7 +12,7 @@ type AdCardProps = {
 };
 
 const AdCard: React.FunctionComponent<AdCardProps> = ({ data }) => {
-  return <div>AdCard</div>;
+  return <div>{data.phone}</div>;
 };
 
 export default AdCard;

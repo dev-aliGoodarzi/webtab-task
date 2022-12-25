@@ -12,17 +12,39 @@ import { adsDataFetchStatus } from "../../Models/customTypes";
 type AdsProps = {
   ads: I_Advertise[];
   adsDataFetchStatus: adsDataFetchStatus;
+  setAdsDataFetchStatus: React.Dispatch<
+    React.SetStateAction<adsDataFetchStatus>
+  >;
 };
 
 const Ads: React.FunctionComponent<AdsProps> = ({
   ads,
   adsDataFetchStatus,
+  setAdsDataFetchStatus,
 }) => {
   return (
     <div>
-      {ads.map((item) => (
-        <AdCard data={item} />
-      ))}
+      <h1>ad Page</h1>
+      {adsDataFetchStatus === "Done" && (
+        <>
+          {ads.map((item) => (
+            <AdCard data={item} key={item.advertise_id} />
+          ))}
+        </>
+      )}
+      {adsDataFetchStatus === "Error" && (
+        <>
+          <h1>Error !</h1>
+          <button
+            onClick={() => {
+              setAdsDataFetchStatus("Pending");
+            }}
+          >
+            retry
+          </button>
+        </>
+      )}
+      {adsDataFetchStatus === "Pending" && <h1>Pending Bro :/ !</h1>}
     </div>
   );
 };

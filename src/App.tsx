@@ -19,15 +19,26 @@ const App = () => {
   const [adsDataFetchStatus, setAdsDataFetchStatus] =
     useState<adsDataFetchStatus>("Pending");
   useEffect(() => {
-    getAdsByVehicleTypeAndAdType(1, 1, setAds);
-  }, []);
+    if (adsDataFetchStatus === "Pending") {
+      getAdsByVehicleTypeAndAdType(1, 1, setAds, setAdsDataFetchStatus);
+      return;
+    } else {
+      return;
+    }
+  }, [adsDataFetchStatus]);
   return (
     <>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
-          path="/"
-          element={<Ads ads={ads} adsDataFetchStatus={adsDataFetchStatus} />}
+          path="/ad"
+          element={
+            <Ads
+              ads={ads}
+              adsDataFetchStatus={adsDataFetchStatus}
+              setAdsDataFetchStatus={setAdsDataFetchStatus}
+            />
+          }
         />
       </Routes>
     </>

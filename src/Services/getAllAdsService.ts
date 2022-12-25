@@ -18,6 +18,6 @@ export const getAllAdsService = async (
         icon: "error",
         title: err.message,
       });
-      return [];
+      return [undefined];
     });
 };
