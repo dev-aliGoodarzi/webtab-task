@@ -2,16 +2,14 @@
 import React from "react";
 // React
 // CSS
-import styles from "./AdTypeSelector.module.css";
 // CSS
 // Icons
-import { SlBadge } from "react-icons/sl";
+import { bronzeBadgeIcon, goldBadgeIcon, silverBadgeIcon } from "../../Icons";
 // Icons
 // Models
 import { adType } from "../../Models/customTypes";
 import { I_adType } from "../../Models/customInterfaces";
 import SelectorBtn from "../../util/SelectorBtn/SelectorBtn";
-import { bronzeBadgeIcon, goldBadgeIcon, silverBadgeIcon } from "../../Icons";
 // Models
 
 type AdTypeSelectorProps = {

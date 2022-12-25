@@ -9,7 +9,6 @@ import styles from "./AdCard.module.css";
 // Modules
 // Icons
 import { IoIosArrowBack } from "react-icons/io";
-import { usePersianNumbers } from "../../Hooks/usePersianNumbers";
 import { Link } from "react-router-dom";
 // Icons
 
