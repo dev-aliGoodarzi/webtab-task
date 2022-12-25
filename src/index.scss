@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: iran-sans;
+  src: url("./Fonts/Iranian_Sans.ttf");
+}
+
+* {
+  font : {
+    family: iran-sans;
+  }
+}

@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
-@tailwind utilities;/*# sourceMappingURL=index.css.map */
+@tailwind utilities;
+@font-face {
+  font-family: iran-sans;
+  src: url("./Fonts/Iranian_Sans.ttf");
+}
+* {
+  font-family: iran-sans;
+}/*# sourceMappingURL=index.css.map */
