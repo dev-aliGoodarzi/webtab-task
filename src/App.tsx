@@ -38,24 +38,29 @@ const App = () => {
     //***********************************SideEffect Manage****************************** */
     //********************************************************************************** */
     <>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route
-          path="/ad"
-          element={
-            <Ads
-              ads={ads}
-              adsDataFetchStatus={adsDataFetchStatus}
-              setAdsDataFetchStatus={setAdsDataFetchStatus}
-              selectedVehicle={selectedVehicle}
-              setSelectedVehicle={setSelectedVehicle}
-              selectedAd={selectedAd}
-              setSelectedAd={setSelectedAd}
-            />
-          }
-        />
-        <Route path="/ad/:adId/:adId2" element={<Ad />} />
-      </Routes>
+      test
+      {window.innerWidth > 600 ? (
+        <> SO BIG DEVICE -- This App Will Render In {"<"} 600px </>
+      ) : (
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route
+            path="/ad"
+            element={
+              <Ads
+                ads={ads}
+                adsDataFetchStatus={adsDataFetchStatus}
+                setAdsDataFetchStatus={setAdsDataFetchStatus}
+                selectedVehicle={selectedVehicle}
+                setSelectedVehicle={setSelectedVehicle}
+                selectedAd={selectedAd}
+                setSelectedAd={setSelectedAd}
+              />
+            }
+          />
+          <Route path="/ad/:adId/:adId2" element={<Ad />} />
+        </Routes>
+      )}
     </>
   );
 };

@@ -30,10 +30,17 @@ const Ads: React.FunctionComponent<AdsProps> = ({
   ads,
   adsDataFetchStatus,
   setAdsDataFetchStatus,
+  selectedAd,
+  selectedVehicle,
+  setSelectedAd,
+  setSelectedVehicle,
 }) => {
   return (
-    <div className="flex flex-col items-center justify-start w-full h-max">
-      <VehicleSelector />
+    <div className="flex flex-col items-center justify-start w-full px-5 h-max">
+      <VehicleSelector
+        setSelectedVehicle={setSelectedVehicle}
+        selectedVehicle={selectedVehicle}
+      />
       {adsDataFetchStatus === "Done" && (
         <>
           {ads.map((item) => (

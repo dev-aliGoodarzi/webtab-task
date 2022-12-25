@@ -1,1 +1,1 @@
-{"version":3,"sources":[],"names":[],"mappings":"","file":"VehicleSelector.module.css"}
+{"version":3,"sources":["VehicleSelector.module.scss","VehicleSelector.module.css"],"names":[],"mappings":"AACE;EACE,yBAAA;EACA,+CAAA;EACA,kBAAA;EACA,yBAAA;EAEE,iBAAA;EACA,kBAAA;ACDN","file":"VehicleSelector.module.css"}

@@ -37,7 +37,7 @@ const AdCard: React.FunctionComponent<AdCardProps> = ({
   return (
     <Link
       to={`${advertise_id}/${advertise_type_id}`}
-      className={`w-11/12 h-30 flex flex-row relative first-of-type:mt-5 mt-10 box-border rounded-lg  ${styles.adCard}`}
+      className={`w-full h-30 flex flex-row relative first-of-type:mt-5 mt-10 box-border rounded-lg  ${styles.adCard}`}
     >
       <img
         src={image}
