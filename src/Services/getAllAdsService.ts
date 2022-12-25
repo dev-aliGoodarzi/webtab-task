@@ -1,10 +1,11 @@
+import { vehicleType, adType } from "./../Models/customTypes";
 // Models
 import { I_Advertise } from "../Models/advertiseInterface";
 import { axiosInstance } from "../util/axiosInstance";
 // Models
 export const getAllAdsService = async (
-  vehicleType: number | string,
-  adType: number | string
+  vehicleType: vehicleType,
+  adType: adType
 ): Promise<I_Advertise[] | string> => {
   return axiosInstance
     .get(`/get-advertises/${vehicleType}/type/${adType}`)
