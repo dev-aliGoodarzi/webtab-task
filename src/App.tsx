@@ -20,8 +20,8 @@ const App = () => {
   const [ads, setAds] = useState<I_Advertise[]>([]);
   const [adsDataFetchStatus, setAdsDataFetchStatus] =
     useState<adsDataFetchStatus>("Pending");
-  const [selectedVehicle, setSelectedVehicle] = useState<vehicleType>("1");
-  const [selectedAd, setSelectedAd] = useState<adType>("1");
+  const [selectedVehicle, setSelectedVehicle] = useState<vehicleType>(1);
+  const [selectedAd, setSelectedAd] = useState<adType>(1);
   //***********************************STATES***************************************** */
   //********************************************************************************** */
   //***********************************SideEffect Manage****************************** */

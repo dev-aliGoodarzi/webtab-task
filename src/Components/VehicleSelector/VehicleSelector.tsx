@@ -7,6 +7,8 @@ import styles from "./VehicleSelector.module.css";
 // CSS
 // Modules
 import { FaTaxi, FaBus, FaTrain } from "react-icons/fa";
+import SelectorBtn from "../../util/SelectorBtn/SelectorBtn";
+import { I_vehicles } from "../../Models/customInterfaces";
 // Modules
 // Models
 // Models
@@ -20,55 +22,45 @@ const VehicleSelector: React.FunctionComponent<VehicleSelectorProps> = ({
   selectedVehicle,
   setSelectedVehicle,
 }) => {
+  const vehicles: I_vehicles[] = [
+    {
+      id: "v-1",
+      title: "تاکسی",
+      icon: <FaTaxi />,
+      onCLick: () => setSelectedVehicle(1),
+      thisVehcileType: 1,
+    },
+    {
+      id: "v-2",
+      title: "مترو",
+      icon: <FaTrain />,
+      onCLick: () => setSelectedVehicle(2),
+      thisVehcileType: 2,
+    },
+    {
+      id: "v-3",
+      title: "اتوبوس",
+      icon: <FaBus />,
+      onCLick: () => setSelectedVehicle(3),
+      thisVehcileType: 3,
+    },
+  ];
+
   return (
     <div
       className={`w-full flex flex-row-reverse items-center justify-between py-8 ${styles.buttonsContainer}`}
     >
-      <button
-        className={`w-1/4 h-16 flex items-center justify-center box-border `}
-        style={{
-          background:
-            selectedVehicle === 1 || selectedVehicle === "1"
-              ? "#FDB813"
-              : "transparent",
-        }}
-        onClick={() => {
-          setSelectedVehicle(1);
-        }}
-      >
-        <span className="mr-2">تاکسی</span>
-        <FaTaxi />
-      </button>
-      <button
-        className={`w-1/4 h-16 flex items-center justify-center box-border`}
-        style={{
-          background:
-            selectedVehicle === 3 || selectedVehicle === "3"
-              ? "#FDB813"
-              : "transparent",
-        }}
-        onClick={() => {
-          setSelectedVehicle(3);
-        }}
-      >
-        <span className="mr-2">مترو</span>
-        <FaTrain />
-      </button>
-      <button
-        className={`w-1/4 h-16 flex items-center justify-center box-border`}
-        style={{
-          background:
-            selectedVehicle === 2 || selectedVehicle === "2"
-              ? "#FDB813"
-              : "transparent",
-        }}
-        onClick={() => {
-          setSelectedVehicle(2);
-        }}
-      >
-        <span className="mr-2">اتوبوس</span>
-        <FaBus />
-      </button>
+      {vehicles.map((item) => (
+        <SelectorBtn
+          key={item.id}
+          onClickHandler={item.onCLick}
+          titleForShow={item.title}
+          selectedVehicle={selectedVehicle}
+          vehcileType={item.thisVehcileType}
+        >
+          {item.icon}
+        </SelectorBtn>
+      ))}
     </div>
   );
 };

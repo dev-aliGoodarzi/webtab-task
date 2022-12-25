@@ -61,6 +61,7 @@ const Ads: React.FunctionComponent<AdsProps> = ({
         </>
       )}
       {adsDataFetchStatus === "Pending" && <h1>Pending Bro :/ !</h1>}
+      
     </div>
   );
 };
