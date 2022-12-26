@@ -43,7 +43,7 @@ const AdCard: React.FunctionComponent<AdCardProps> = ({
   return (
     <>
       <div
-        className={`w-full h-30 flex flex-row relative first-of-type:mt-5 mt-10 box-border rounded-lg last-of-type:mb-24 ${styles.adCard}`}
+        className={`w-full h-30 flex flex-row relative mt-4 box-border rounded-lg last-of-type:mb-24 ${styles.adCard}`}
       >
         <img
           src={image}
