@@ -48,7 +48,7 @@ const VehicleSelector: React.FunctionComponent<VehicleSelectorProps> = ({
 
   return (
     <div
-      className={`w-full flex flex-row-reverse items-center justify-between py-8 ${styles.buttonsContainer}`}
+      className={`w-full flex flex-row-reverse items-center justify-between mt-5 ${styles.buttonsContainer}`}
     >
       {vehicles.map((item) => (
         <SelectorBtn

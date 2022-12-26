@@ -72,9 +72,11 @@ const Ads: React.FunctionComponent<AdsProps> = ({
       h1El?.classList.add("justify-between");
       h1El?.classList.add(styles.active);
       h1El?.classList.add("px-5");
+      h1El?.classList.add("h-20");
       return;
     } else {
       h1El?.classList.remove("justify-between");
+      h1El?.classList.remove("h-20");
       h1El?.classList.remove(styles.active);
     }
   }, [scrollPercentage]);
@@ -82,7 +84,7 @@ const Ads: React.FunctionComponent<AdsProps> = ({
   //********************************************************************************** */
 
   return (
-    <div className="flex flex-col items-center justify-start w-full px-4 h-max relative">
+    <div className="flex flex-col items-center justify-start w-full px-4 h-max relative ">
       <img src={phoneInAdsPageIng} alt="" />
       <span
         id="backBtn"
@@ -94,7 +96,7 @@ const Ads: React.FunctionComponent<AdsProps> = ({
         &lt;
       </span>
       <h1
-        className="flex flex-row-reverse justify-center items-center sticky top-0 z-20 w-screen h-20 text-xl"
+        className="flex flex-row-reverse justify-center items-center sticky top-0 z-20 w-screen text-xl mt-6"
         id="h1"
       >
         لیست تبلیغات
