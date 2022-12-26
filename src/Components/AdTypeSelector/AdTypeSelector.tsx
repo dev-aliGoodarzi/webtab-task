@@ -57,7 +57,7 @@ const AdTypeSelector: React.FunctionComponent<AdTypeSelectorProps> = ({
           titleForShow={item.title}
           adType={selectedAd}
           selectedAd={item.adType}
-          className="flex-col-reverse border-none shadow-none text-sm w-1/3 rounded-none mx-0 mr-0 ml-0"
+          className="flex-col-reverse border-none shadow-none text-sm w-max rounded-none mx-0 mr-0 ml-0"
           styles={{
             borderBottom:
               selectedAd === item.adType
@@ -66,7 +66,7 @@ const AdTypeSelector: React.FunctionComponent<AdTypeSelectorProps> = ({
             boxShadow: "none",
           }}
         >
-          <img src={item.icon} alt={`badgeIcon`} />
+          <img src={item.icon} alt={`badgeIcon`} className="w-3" />
         </SelectorBtn>
       ))}
     </div>

@@ -82,7 +82,7 @@ const Ads: React.FunctionComponent<AdsProps> = ({
   //********************************************************************************** */
 
   return (
-    <div className="flex flex-col items-center justify-start w-full px-5 h-max relative">
+    <div className="flex flex-col items-center justify-start w-full px-4 h-max relative">
       <img src={phoneInAdsPageIng} alt="" />
       <span
         id="backBtn"
