@@ -12,7 +12,6 @@ import { IoIosArrowBack } from "react-icons/io";
 import { FcLike } from "react-icons/fc";
 import { AiOutlineLike } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import { postManageFavoriteAds } from "../../Services/postManageFavoriteAds";
 import { manageFavorites } from "../../util/manageFavorites";
 import {
   adsDataFetchStatus,
