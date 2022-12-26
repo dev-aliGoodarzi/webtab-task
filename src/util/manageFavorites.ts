@@ -13,7 +13,7 @@ export const manageFavorites = async (
   adId: number | string,
   setAds: React.Dispatch<React.SetStateAction<I_Advertise[]>>,
   ads: I_Advertise[]
-) => {
+): Promise<void> => {
   const copyAds = [...ads];
   const copyAds2 = [...ads];
   const selectedAd = copyAds.findIndex((item) => item.advertise_id === adId);

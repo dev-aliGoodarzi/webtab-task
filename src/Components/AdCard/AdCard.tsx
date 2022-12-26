@@ -10,10 +10,9 @@ import "react-toastify/dist/ReactToastify.css";
 // Modules
 // Icons
 import { IoIosArrowBack } from "react-icons/io";
-import { FcLike } from "react-icons/fc";
 import { Link } from "react-router-dom";
 import { manageFavorites } from "../../util/manageFavorites";
-import { ToastContainer } from "react-toastify";
+import LikeBtn from "../../util/LikeBtn/LikeBtn";
 // Icons
 
 type AdCardProps = {
@@ -67,13 +66,11 @@ const AdCard: React.FunctionComponent<AdCardProps> = ({
             <p>{address}</p>
             <p>{phone}</p>
             <div className="mt-4 relative z-10">
-              <FcLike
-                fillOpacity={favourite ? "1" : 0.5}
-                fill="red"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  manageFavorites(advertise_id, setAds, ads);
-                }}
+              <LikeBtn
+                favourite={favourite}
+                manageFavorites={() =>
+                  manageFavorites(advertise_id, setAds, ads)
+                }
               />
             </div>{" "}
           </div>
