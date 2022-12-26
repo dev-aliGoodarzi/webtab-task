@@ -12,8 +12,6 @@ import { getSingleAd } from "../../util/getSingleAd";
 import { adsDataFetchStatus } from "../../Models/customTypes";
 import BackBtn from "../../util/BackBtn/BackBtn";
 import PendingAnimation from "../PendingAnimation/PendingAnimation";
-import LikeBtn from "../../util/LikeBtn/LikeBtn";
-import { manageFavorites } from "../../util/manageFavorites";
 // Moduels
 
 const Ad = () => {
