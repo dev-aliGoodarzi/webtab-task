@@ -14,6 +14,7 @@ import { phoneInAdsPageIng } from "../../Images";
 // React
 // CSS
 import styles from "./Ads.module.css";
+import { useNavigate } from "react-router-dom";
 // CSS
 // Modules
 // Modules
@@ -39,7 +40,15 @@ const Ads: React.FunctionComponent<AdsProps> = ({
   setSelectedAd,
   setSelectedVehicle,
 }) => {
+  //***************************constants********************************************** */
+  const navigate = useNavigate();
+  //***************************constants********************************************** */
+  //********************************************************************************** */
+  //****************************States************************************************** */
   const [scrollPercentage, setScrollPercentage] = useState<number>(0);
+  //****************************States************************************************** */
+  //********************************************************************************** */
+  //***************************LifeCycles********************************************* */
   useEffect(() => {
     // For updating ScrollIndicator
     window.addEventListener("scroll", (): void => {
@@ -53,6 +62,7 @@ const Ads: React.FunctionComponent<AdsProps> = ({
 
     return window.removeEventListener("scroll", () => {});
   });
+  // for track the h1El => لیست تبلیغات
   useEffect(() => {
     const h1El = document.getElementById("h1");
     const backBtn = document.getElementById("backBtn");
@@ -69,17 +79,25 @@ const Ads: React.FunctionComponent<AdsProps> = ({
       h1El?.classList.remove(styles.active);
     }
   }, [scrollPercentage]);
+  //***************************LifeCycles********************************************* */
+  //********************************************************************************** */
 
   return (
     <div className="flex flex-col items-center justify-start w-full px-5 h-max relative">
       <img src={phoneInAdsPageIng} alt="" />
       <h1
-        className="flex flex-row-reverse justify-center items-center sticky top-0 z-20 w-screen h-20"
+        className="flex flex-row-reverse justify-center items-center sticky top-0 z-20 w-screen h-20 text-xl"
         id="h1"
       >
         <span>لیست تبلیغات</span>
 
-        <span id="backBtn" className="opacity-0">
+        <span
+          id="backBtn"
+          className="opacity-0"
+          onClick={() => {
+            navigate(-1);
+          }}
+        >
           &lt;
         </span>
       </h1>
