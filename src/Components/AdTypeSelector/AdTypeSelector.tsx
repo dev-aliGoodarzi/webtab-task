@@ -62,7 +62,8 @@ const AdTypeSelector: React.FunctionComponent<AdTypeSelectorProps> = ({
             borderBottom:
               selectedAd === item.adType
                 ? "2px solid #FDB813"
-                : "2px solid transparent",
+                : "0px solid transparent",
+            boxShadow: "none",
           }}
         >
           <img src={item.icon} alt={`badgeIcon`} />
