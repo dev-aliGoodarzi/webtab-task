@@ -9,10 +9,11 @@ import { I_Advertise } from "../../Models/advertiseInterface";
 // Moduels
 import { useParams } from "react-router-dom";
 import { getSingleAd } from "../../util/getSingleAd";
+import { adsDataFetchStatus } from "../../Models/customTypes";
 // Moduels
 
 const Ad = () => {
-  const [selectedAdData, setSelectedAdData] = useState<I_Advertise>({
+  const [selectedAdData, setFetchStatus] = useState<I_Advertise>({
     address: "",
     advertise_id: 0,
     advertise_type_id: 0,
@@ -27,12 +28,40 @@ const Ad = () => {
     phone: "",
     discount_value: "",
   });
+  const [fetchStatus, setIsPending] = useState<adsDataFetchStatus>("Pending");
   const { adId: selectedAd, adId2 } = useParams();
   useEffect(() => {
-    getSingleAd(adId2, setSelectedAdData);
-    console.log(`selectedAd : `, selectedAd);
-  }, [selectedAd, adId2]);
-  return <div>{selectedAdData.address}</div>;
+    getSingleAd(adId2, setFetchStatus)
+      .then(() => {
+        setIsPending("Done");
+      })
+      .catch(() => {
+        setIsPending("Error");
+      });
+  }, [selectedAd, adId2, fetchStatus]);
+  return (
+    <div>
+      <img src={selectedAdData.image} alt="" className="w-full h-64" />
+      <p>{selectedAdData.address}</p>
+      <br />
+      <p>{selectedAdData.description}</p>
+      <br />
+      <p>
+        {selectedAdData.lat_lon.split(",").map((item, index) => (
+          <span key={item}>
+            {index === 0 ? (
+              <>lat : {item}</>
+            ) : (
+              <>
+                <br />
+                lon : {item}
+              </>
+            )}
+          </span>
+        ))}
+      </p>
+    </div>
+  );
 };
 
 export default Ad;
