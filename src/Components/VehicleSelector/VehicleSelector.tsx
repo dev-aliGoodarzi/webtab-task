@@ -62,6 +62,8 @@ const VehicleSelector: React.FunctionComponent<VehicleSelectorProps> = ({
               selectedVehicle === item.thisVehcileType
                 ? "#FDB813"
                 : "transparent",
+
+            width: "32%",
           }}
         >
           {item.icon}
