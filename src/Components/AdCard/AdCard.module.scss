@@ -8,4 +8,12 @@
     background-color: rgba(187, 184, 184, 0.4);
     direction: rtl;
   }
+  a {
+    background-image: linear-gradient(
+      270deg,
+      rgba(0, 0, 0, 0.501961) 0%,
+      rgba(0, 0, 0, 0.243137) 30.13%,
+      rgba(0, 0, 0, 0) 100%
+    );
+  }
 }

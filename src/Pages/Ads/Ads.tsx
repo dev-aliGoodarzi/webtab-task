@@ -104,18 +104,16 @@ const Ads: React.FunctionComponent<AdsProps> = ({
         selectedVehicle={selectedVehicle}
       />
       {adsDataFetchStatus === "Done" && (
-        <>
+        <div className="flex flex-col items-center justify-start w-full h-max">
           {ads.map((item) => (
             <AdCard
               data={item}
               key={item.advertise_id}
               setAds={setAds}
-              adType={selectedAd}
-              setFetchStatus={setAdsDataFetchStatus}
-              vehicleType={selectedVehicle}
+              ads={ads}
             />
           ))}
-        </>
+        </div>
       )}
       {adsDataFetchStatus === "Error" && (
         <>

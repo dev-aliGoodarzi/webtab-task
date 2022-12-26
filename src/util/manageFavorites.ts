@@ -1,35 +1,45 @@
-import { adType, vehicleType } from "./../Models/customTypes";
+// Services
 import { postManageFavoriteAds } from "./../Services/postManageFavoriteAds";
-import React from "react";
+// Services
+// Models
 import { I_Advertise } from "../Models/advertiseInterface";
+// Models
+// Modules
 import Swal from "sweetalert2";
-import { adsDataFetchStatus } from "../Models/customTypes";
-import { getAdsByVehicleTypeAndAdType } from "./getAdsByVehicleTypeAndAdType";
+import { toast } from "react-toastify";
+// Modules
 
 export const manageFavorites = async (
   adId: number | string,
   setAds: React.Dispatch<React.SetStateAction<I_Advertise[]>>,
-  setFetchStatus: React.Dispatch<React.SetStateAction<adsDataFetchStatus>>,
-  vehicleType: vehicleType,
-  adType: adType
+  ads: I_Advertise[]
 ) => {
-  setFetchStatus("Pending");
-  const res = await postManageFavoriteAds(adId);
-  if (res === false) {
-    setFetchStatus("Error");
-    return Swal.fire({
-      icon: "error",
-      title: "در زمان به روزرسانی مشکلی رخ داد",
-    });
-  } else {
-    await getAdsByVehicleTypeAndAdType(
-      vehicleType,
-      adType,
-      setAds,
-      setFetchStatus
-    );
-    await Swal.fire({ icon: "success", title: "عملیات انجام شد" }).then(
-      () => {}
-    );
-  }
+  const copyAds = [...ads];
+  const copyAds2 = [...ads];
+  const selectedAd = copyAds.findIndex((item) => item.advertise_id === adId);
+  copyAds[selectedAd].favourite = !copyAds[selectedAd].favourite;
+  setAds(copyAds);
+  await postManageFavoriteAds(adId).then((res) => {
+    if (res) {
+      toast.success("Done !", {
+        position: "top-left",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      return;
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: "هنگام ارتباط با سرور مشکلی رخ داد",
+      }).then(() => {
+        copyAds[selectedAd].favourite = !copyAds[selectedAd].favourite;
+        return setAds(copyAds2);
+      });
+    }
+  });
 };

@@ -13,6 +13,7 @@ import { I_Advertise } from "./Models/advertiseInterface";
 // Modules
 import { Routes, Route } from "react-router-dom";
 import { getAdsByVehicleTypeAndAdType } from "./util/getAdsByVehicleTypeAndAdType";
+import { ToastContainer } from "react-toastify";
 // Modules
 
 const App = () => {
@@ -50,25 +51,39 @@ const App = () => {
       {window.innerWidth > 600 ? (
         <> SO BIG DEVICE -- This App Will Render In {"<"} 600px </>
       ) : (
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route
-            path="/ads"
-            element={
-              <Ads
-                ads={ads}
-                adsDataFetchStatus={adsDataFetchStatus}
-                setAdsDataFetchStatus={setAdsDataFetchStatus}
-                selectedVehicle={selectedVehicle}
-                setSelectedVehicle={setSelectedVehicle}
-                selectedAd={selectedAd}
-                setSelectedAd={setSelectedAd}
-                setAds={setAds}
-              />
-            }
+        <>
+          <ToastContainer
+            position="top-left"
+            autoClose={2000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
           />
-          <Route path="/ads/:adId/:adId2" element={<Ad />} />
-        </Routes>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route
+              path="/ads"
+              element={
+                <Ads
+                  ads={ads}
+                  adsDataFetchStatus={adsDataFetchStatus}
+                  setAdsDataFetchStatus={setAdsDataFetchStatus}
+                  selectedVehicle={selectedVehicle}
+                  setSelectedVehicle={setSelectedVehicle}
+                  selectedAd={selectedAd}
+                  setSelectedAd={setSelectedAd}
+                  setAds={setAds}
+                />
+              }
+            />
+            <Route path="/ads/:adId/:adId2" element={<Ad />} />
+          </Routes>
+        </>
       )}
     </>
   );

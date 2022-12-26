@@ -4,28 +4,22 @@ import { I_Advertise } from "../../Models/advertiseInterface";
 // React
 // CSS
 import styles from "./AdCard.module.css";
+import "react-toastify/dist/ReactToastify.css";
 // CSS
 // Modules
 // Modules
 // Icons
 import { IoIosArrowBack } from "react-icons/io";
 import { FcLike } from "react-icons/fc";
-import { AiOutlineLike } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { manageFavorites } from "../../util/manageFavorites";
-import {
-  adsDataFetchStatus,
-  adType,
-  vehicleType,
-} from "../../Models/customTypes";
+import { ToastContainer } from "react-toastify";
 // Icons
 
 type AdCardProps = {
   data: I_Advertise;
   setAds: React.Dispatch<React.SetStateAction<I_Advertise[]>>;
-  setFetchStatus: React.Dispatch<React.SetStateAction<adsDataFetchStatus>>;
-  vehicleType: vehicleType;
-  adType: adType;
+  ads: I_Advertise[];
 };
 
 const AdCard: React.FunctionComponent<AdCardProps> = ({
@@ -45,64 +39,47 @@ const AdCard: React.FunctionComponent<AdCardProps> = ({
     discount_value,
   },
   setAds,
-  setFetchStatus,
-  adType,
-  vehicleType,
+  ads,
 }) => {
   return (
-    <div
-      className={`w-full h-30 flex flex-row relative first-of-type:mt-5 mt-10 box-border rounded-lg last-of-type:mb-24 ${styles.adCard}`}
-    >
-      <img
-        src={image}
-        alt=""
-        className="absolute z-0 left-0 h-full w-full rounded-lg "
-      />
+    <>
       <div
-        className={`w-full h-full absolute top-0 left-0 rounded-lg flex flex-row-reverse items-center justify-between px-3 ${styles.contents}`}
+        className={`w-full h-30 flex flex-row relative first-of-type:mt-5 mt-10 box-border rounded-lg last-of-type:mb-24 ${styles.adCard}`}
       >
-        <Link to={`${advertise_id}/${advertise_type_id}`}>
-          <IoIosArrowBack />
-        </Link>
+        <img
+          src={image}
+          alt=""
+          className="absolute z-0 left-0 h-full w-full rounded-lg "
+        />
         <div
-          className={`flex flex-col items-start justify-start ${styles.data}`}
+          className={`w-full h-full absolute top-0 left-0 rounded-lg flex flex-row-reverse items-center justify-between pr-3 ${styles.contents}`}
         >
-          <p>{description}</p>
-          <p>{address}</p>
-          <p>{phone}</p>
-          <div className="mt-4 relative z-10">
-            {favourite ? (
+          <Link
+            to={`${advertise_id}/${advertise_type_id}`}
+            className="h-full w-1/12 flex items-center justify-center"
+          >
+            <IoIosArrowBack />
+          </Link>
+          <div
+            className={`flex flex-col items-start justify-start ${styles.data}`}
+          >
+            <p>{description}</p>
+            <p>{address}</p>
+            <p>{phone}</p>
+            <div className="mt-4 relative z-10">
               <FcLike
+                fillOpacity={favourite ? "1" : 0.5}
+                fill="red"
                 onClick={(e) => {
                   e.stopPropagation();
-                  manageFavorites(
-                    advertise_id,
-                    setAds,
-                    setFetchStatus,
-                    vehicleType,
-                    adType
-                  );
-                }}
-                className="text-3xl"
-              />
-            ) : (
-              <AiOutlineLike
-                onClick={(e) => {
-                  e.stopPropagation();
-                  manageFavorites(
-                    advertise_id,
-                    setAds,
-                    setFetchStatus,
-                    vehicleType,
-                    adType
-                  );
+                  manageFavorites(advertise_id, setAds, ads);
                 }}
               />
-            )}
-          </div>{" "}
+            </div>{" "}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
