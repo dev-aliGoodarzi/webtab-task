@@ -31,3 +31,4 @@ interface Socialmedia {
   type: string;
   url?: string;
 }
+

@@ -48,7 +48,7 @@ const AdTypeSelector: React.FunctionComponent<AdTypeSelectorProps> = ({
 
   return (
     <div
-      className={`w-full flex flex-row-reverse items-end justify-evenly fixed bottom-0 py-3 bg-white ${styles.adTypeContainer}`}
+      className={`w-full flex flex-row-reverse items-end justify-evenly fixed bottom-0 py-3 bg-white z-20 ${styles.adTypeContainer}`}
     >
       {adBtns.map((item) => (
         <SelectorBtn

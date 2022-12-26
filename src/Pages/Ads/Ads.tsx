@@ -29,6 +29,7 @@ type AdsProps = {
   setSelectedVehicle: React.Dispatch<React.SetStateAction<vehicleType>>;
   selectedAd: adType;
   setSelectedAd: React.Dispatch<React.SetStateAction<adType>>;
+  setAds: React.Dispatch<React.SetStateAction<I_Advertise[]>>;
 };
 
 const Ads: React.FunctionComponent<AdsProps> = ({
@@ -39,6 +40,7 @@ const Ads: React.FunctionComponent<AdsProps> = ({
   selectedVehicle,
   setSelectedAd,
   setSelectedVehicle,
+  setAds,
 }) => {
   //***************************constants********************************************** */
   const navigate = useNavigate();
@@ -108,7 +110,14 @@ const Ads: React.FunctionComponent<AdsProps> = ({
       {adsDataFetchStatus === "Done" && (
         <>
           {ads.map((item) => (
-            <AdCard data={item} key={item.advertise_id} />
+            <AdCard
+              data={item}
+              key={item.advertise_id}
+              setAds={setAds}
+              adType={selectedAd}
+              setFetchStatus={setAdsDataFetchStatus}
+              vehicleType={selectedVehicle}
+            />
           ))}
         </>
       )}

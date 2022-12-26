@@ -64,6 +64,7 @@ const App = () => {
                 setSelectedVehicle={setSelectedVehicle}
                 selectedAd={selectedAd}
                 setSelectedAd={setSelectedAd}
+                setAds={setAds}
               />
             }
           />
